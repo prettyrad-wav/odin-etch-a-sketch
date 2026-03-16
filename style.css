@@ -1,0 +1,30 @@
+body {
+    display: flex;
+    margin: 40px auto;
+    justify-content: center;
+}
+
+.row {
+    display: flex;
+    justify-content: space-around;
+    flex: auto;
+    min-height: 0;
+}
+
+.box {
+    background-color: #e6ebeb;
+    flex: auto;
+    min-height: 0;
+}
+
+.grid-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 700px;
+    width: 700px;
+    background-color: aliceblue;
+    flex: 0 1 auto;
+    border: 5px solid black;
+}
+
