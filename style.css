@@ -17,6 +17,12 @@ body {
     min-height: 0;
 }
 
+.color {
+    background-color: #000000;
+    flex: auto;
+    min-height: 0;
+}
+
 .grid-container {
     display: flex;
     flex-direction: column;

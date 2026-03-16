@@ -2,9 +2,10 @@ let body = document.querySelector("body")
 
 let gridContainer = document.querySelector(".grid-container")
 
-
-let i = 1
 let gridSize = 16
+
+function createGrid(){
+let i = 1
 let boxes = gridSize
 while (i <= gridSize) {
 let row = document.createElement("div")
@@ -18,16 +19,28 @@ gridContainer.appendChild(row)
 i++
 boxes = gridSize
 }
+}
 
+createGrid()
 
+function draw(e){
+    if (e.target.matches('.box')) {
+                e.target.classList.toggle("color", true)
+            console.log("mouseover")    
+            }
+}
 
 gridContainer.addEventListener("mousedown", (e) => {
-    if (e.target.matches("box")) {
-        gridContainer.addEventListener("mouseover", (e) => {
-            e.target.classlist.toggle("color", true)
-        })   
-    }
+        gridContainer.addEventListener("mouseover", draw)   
+   console.log("mousedown") 
 })
+
+
+gridContainer.addEventListener("mouseup", (e) => {
+    gridContainer.removeEventListener("mouseover", draw)
+    console.log("mouseup")    
+})
+
 
 
 
