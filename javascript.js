@@ -2,7 +2,7 @@ let body = document.querySelector("body")
 let gridContainer = document.querySelector(".grid-container")
 let gridInput = document.querySelector(".grid-value")
 let resetBttn = document.querySelector(".reset-bttn")
-
+let gayMode = document.querySelector(".gay-mode")
 
 function createGrid(){
     if (gridInput.value < 1 || gridInput.value > 100) {
@@ -22,7 +22,7 @@ function createGrid(){
         i++
         boxes = gridInput.value
         }
-        console.log("gridcreated")
+        console.log("grid created")
     }
 }
 
@@ -34,7 +34,6 @@ function clearGrid(){
     let rowDelete = document.querySelectorAll(".row")
     boxDelete.forEach(el => el.remove())
     rowDelete.forEach(el => el.remove())
-    console.log("clear grid")
     }
 }
 
@@ -47,15 +46,47 @@ function draw(e){
     if (e.target.matches('.box')) {
                 e.target.classList.toggle("color", true)    
             }
+            console.log("draw")
+}
+
+function zestyDraw(e){
+        console.log("zestyWork?")
+
+    if (e.target.matches('.box')) {
+        let num = Math.floor(Math.random() * (7 - 1 + 1)) + 1;
+        if (num === 1) {
+            console.log("zest")
+            e.target.classList.toggle("red", true)
+        } else if (num === 2) {
+            e.target.classList.toggle("orange", true)
+        } else if (num === 3) {
+            e.target.classList.toggle("Yellow", true)
+        } else if (num === 4) {
+            e.target.classList.toggle("green", true)
+        } else if (num === 5) {
+            e.target.classList.toggle("blue", true)
+        } else if (num === 6) {
+            e.target.classList.toggle("indigo", true)
+        } else if (num === 7) {
+            e.target.classList.toggle("violet", true)
+        }
+        console.log("zestydraw")
+    }
 }
 
 gridContainer.addEventListener("mousedown", (e) => {
-        gridContainer.addEventListener("mouseover", draw)    
+    console.log("mousedown")
+    if (gayMode.checked === true) {
+        gridContainer.addEventListener("mouseover", zestyDraw);
+    } else {
+        gridContainer.addEventListener("mouseover", draw) ;  
+    }    
 })
 
 
 gridContainer.addEventListener("mouseup", (e) => {
     gridContainer.removeEventListener("mouseover", draw)    
+    gridContainer.removeEventListener("mouseover", zestyDraw)    
 })
 
 
