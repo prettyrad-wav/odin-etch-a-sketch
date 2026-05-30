@@ -3,7 +3,9 @@ let gridContainer = document.querySelector(".grid-container")
 let gridInput = document.querySelector(".grid-value")
 let resetBttn = document.querySelector(".reset-bttn")
 let gayMode = document.querySelector(".gay-mode")
+let blackOut = document.querySelector(".blackout")
 let date = new Date().getMonth();
+
 function createGrid(){
     if (gridInput.value < 1 || gridInput.value > 100) {
       alert("Invalid grid size! Input needs to be between 1-100")  
@@ -73,12 +75,32 @@ function zestyDraw(e){
     }
 }
 
+function blackout(e) {
+    if (e.target.matches(".box")) {
+    let opacityValue = parseFloat(e.target.style.opacity);    
+    let currentOpacity = isNaN(opacityValue) ? 1 : opacityValue;
+    let newOpacity = currentOpacity - 0.1;
+    
+    if (newOpacity < 0) {
+        newOpacity = 0
+    }
+
+    e.target.style.opacity = newOpacity;
+    console.log("blackout")
+}}
+
 gridContainer.addEventListener("mousedown", (e) => {
     console.log("mousedown")
     if (gayMode.checked === false && date === 5) {
         alert("HOMOPHOBE! HOMOPHOBE! Turn on gay mode to use this during pride month!")
-    } else if (gayMode.checked === true) {
+    } else if (gayMode.checked === true && blackOut.checked === false) {
         gridContainer.addEventListener("mouseover", zestyDraw);
+    } else if (gayMode.checked === true && blackOut.checked === true) {
+        gridContainer.addEventListener("mouseover", zestyDraw);
+        gridContainer.addEventListener("mouseover", blackout);
+    } else if (gayMode.checked === false && blackOut.checked === true) {
+        gridContainer.addEventListener("mouseover", draw);
+        gridContainer.addEventListener("mouseover", blackout);
     } else {
         gridContainer.addEventListener("mouseover", draw) ;  
     }    
@@ -87,7 +109,8 @@ gridContainer.addEventListener("mousedown", (e) => {
 
 gridContainer.addEventListener("mouseup", (e) => {
     gridContainer.removeEventListener("mouseover", draw)    
-    gridContainer.removeEventListener("mouseover", zestyDraw)    
+    gridContainer.removeEventListener("mouseover", zestyDraw)
+    gridContainer.removeEventListener("mouseover", blackout)    
 })
 
 

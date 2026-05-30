@@ -12,7 +12,7 @@ body {
 }
 
 .box {
-    background-color: #e6ebeb;
+    background-color: #ffffff;
     flex: auto;
     min-height: 0;
 }
@@ -21,6 +21,7 @@ body {
     background-color: #000000;
     flex: auto;
     min-height: 0;
+    opacity: 1;
 }
 
 /* GAY MODE STYLING */
@@ -29,42 +30,49 @@ body {
     background-color: red;
     flex: auto;
     min-height: 0;
+    opacity: 1;
 }
 
 .orange {
     background-color: orange;
     flex: auto;
     min-height: 0;
+    opacity: 1;
 }
 
 .yellow {
     background-color: yellow;
     flex: auto;
     min-height: 0;
+    opacity: 1;
 }
 
 .green {
     background-color: green;
     flex: auto;
     min-height: 0;
+    opacity: 1;
 }
 
 .blue {
     background-color: blue;
     flex: auto;
     min-height: 0;
+    opacity: 1;
 }
 
 .indigo {
     background-color: indigo;
     flex: auto;
     min-height: 0;
+    opacity: 1;
 }
 
 .violet {
     background-color: violet;
     flex: auto;
     min-height: 0;
+    opacity: 1;
 }
 
 /* END GAY MODE */
@@ -77,6 +85,6 @@ body {
     width: 700px;
     background-color: aliceblue;
     flex: 0 1 auto;
-    border: 5px solid black;
+    border: 5px solid #000000;
 }
 
